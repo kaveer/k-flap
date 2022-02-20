@@ -1,10 +1,11 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public const float force = 4;
     private Rigidbody2D playerBody;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
         /// 1 - right click
         /// 2 - scroll/ middle click
         if (Input.GetMouseButton(0))
-        {
-            playerBody.velocity = Vector2.up * force;
-        }
+            playerBody.velocity = Vector2.up * Constants.force;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SceneManager.LoadScene(Constants.playGame);
     }
 }
