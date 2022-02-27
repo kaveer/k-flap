@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
         /// 0 - left click
         /// 1 - right click
         /// 2 - scroll/ middle click
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
             playerBody.velocity = Vector2.up * Constants.force;
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
